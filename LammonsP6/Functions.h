@@ -8,17 +8,38 @@
 
 using namespace std;
 
-
+void writeFirstTenPerson(Person* a);
+void writeLastTenPerson(Person* a, size_t size);
 void fillPersonArray(Person a[], size_t size, PersonGen* rPersonGen);
 void readToArrayFunction(string file, int a[]);
 string getFileName();
 
+template <typename T>
+void writeLastTen(const T* a, size_t size)
+{
+    for (size_t i{ size - 1 }; i > size - 11; i--)
+    {
+        cout << i + 1 << ": " << a[i] << endl;
+    }
+}
+
+template <typename T>
+void writeFirstTen(const T* a)
+{
+    for (size_t i{ 0 }; i < 10; ++i)
+    {
+        cout << i + 1 << ": " << a[i] << endl;
+    }
+}
+
 //Only works with type int and type string
 template <typename T>
-void readToArrayTemplate(string file, T a[], size_t size) {
+void readToArrayTemplate(string file, T a[], size_t size)
+{
     try {
         fstream inputFile(file);
-        if (!inputFile) {
+        if (!inputFile)
+        {
             cout << "\r\nInput file not found." << endl;
             return;
         }
@@ -37,16 +58,20 @@ void readToArrayTemplate(string file, T a[], size_t size) {
         //types. These are often needed when working with templates.
         //is_same_v returns a constexpr bool depending on whether the types are the same. 
         //this function cannot work with Person because constexpr can only be used with builtin types.
-        auto inputParser = [&](istream& inputStream) {
-            if constexpr (is_same_v<T, string>) {
+        auto inputParser = [&](istream& inputStream)
+        {
+            if constexpr (is_same_v<T, string>)
+            {
                 getline(inputStream, element);
             }
-            else {
+            else 
+            {
                 inputStream >> element;
             }
         };
 
-        while (!inputFile.eof() && count < size) {
+        while (!inputFile.eof() && count < size) 
+        {
             inputParser(inputFile);
             a[count] = element;
             count++;
@@ -54,7 +79,8 @@ void readToArrayTemplate(string file, T a[], size_t size) {
 
         inputFile.close();
     }
-    catch (exception e) {
+    catch (exception e)
+    {
         cout << e.what();
     }
 }

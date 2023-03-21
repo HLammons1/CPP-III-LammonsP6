@@ -3,6 +3,7 @@
 #include <string>
 #include "LammonsPersonGen/PersonGen.h"
 #include "Functions.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -11,13 +12,17 @@ using namespace std;
 
 int main()
 {
-	int* intArray = new int[200000];
-	string* stringArray = new string[25000];
-	Person* personArray = new Person[10000];
+	int* unsortedIntArray = new int[200000];
+	string* unsortedStringArray = new string[25000];
+	Person* unsortedPersonArray = new Person[10000];
 
-	const int INTARRAYSIZE{ 200000 };
-	const int STRINGARRAYSIZE{ 25000 };
-	const int PERSONARRAYSIZE{ 10000 };
+	int* sortedIntArray = new int[200000];
+	string* sortedStringArray = new string[25000];
+	Person* sortedPersonArray = new Person[10000];
+
+	const size_t INTARRAYSIZE{ 200000 };
+	const size_t STRINGARRAYSIZE{ 25000 };
+	const size_t PERSONARRAYSIZE{ 10000 };
 
 	PersonGen* pg = new PersonGen;
 	Sort<int> intSorter;
@@ -26,19 +31,24 @@ int main()
 
 	string fileName = getFileName();
 
-	readToArrayTemplate<int>("BJTest200K.txt", intArray, INTARRAYSIZE);
-	readToArrayTemplate<string>("BJName25000.txt", stringArray, STRINGARRAYSIZE);
-	fillPersonArray(personArray, PERSONARRAYSIZE, pg);
+	readToArrayTemplate<int>("BJTest200K.txt", unsortedIntArray, INTARRAYSIZE);
+	readToArrayTemplate<string>("BJName25000.txt", unsortedStringArray, STRINGARRAYSIZE);
+	fillPersonArray(unsortedPersonArray, PERSONARRAYSIZE, pg);
 
-	delete[] intArray;
-	delete[] stringArray;
-	delete[] personArray;
+
+
+	delete[] unsortedIntArray;
+	delete[] unsortedStringArray;
+	delete[] unsortedPersonArray;
+	delete[] sortedIntArray;
+	delete[] sortedStringArray;
+	delete[] sortedPersonArray;
+
 	return 0;
 }
 
 /*
 
-- You’ll need a temp array for the integers, for the strings and one for the Persons.
 - Use the chrono to “time” your sort functions. You’ll be reporting your sort time in SEC.MSEC and show the values beside it.  (This will double-check that you convert your values correctly.
 - You’ll be sorting each type of array a total of 5 times.
 

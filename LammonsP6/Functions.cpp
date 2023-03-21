@@ -1,5 +1,23 @@
 #include "Functions.h"
 
+
+
+void writeFirstTenPerson(Person* a)
+{
+	for (size_t i{ 0 }; i < 10; ++i)
+	{
+		cout << i + 1 << ": " << a[i].GetName() << endl;
+	}
+}
+
+void writeLastTenPerson(Person* a, size_t size)
+{
+	for (size_t i{ size - 1 }; i > size - 11; i--)
+	{
+		cout << i + 1 << ": " << a[i].GetName() << endl;
+	}
+}
+
 void fillPersonArray(Person a[], size_t size, PersonGen* rPersonGen)
 {
 	for (int i{ 0 }; i < size; i++)

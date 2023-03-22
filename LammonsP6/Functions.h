@@ -8,11 +8,14 @@
 
 using namespace std;
 
+void writeToFile(string file, string input);
 void writeFirstTenPerson(Person* a);
 void writeLastTenPerson(Person* a, size_t size);
 void fillPersonArray(Person a[], size_t size, PersonGen* rPersonGen);
 void readToArrayFunction(string file, int a[]);
 string getFileName();
+
+
 
 template <typename T>
 void writeLastTen(const T* a, size_t size)
@@ -125,7 +128,7 @@ void readToArrayTemplate(string file, T a[], size_t size)
 //		}
 //		else if (typeid(element) == typeid(testString))
 //		{
-//			while (getline(inputFile, static_cast<std::string&>(element))) //|| !EOF)
+//			while (getline(inputFile, static_cast<string&>(element))) //|| !EOF)
 //			{
 //				a[count] = element;
 //				count++;

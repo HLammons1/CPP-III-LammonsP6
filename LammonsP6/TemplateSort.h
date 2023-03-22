@@ -46,20 +46,6 @@ void Sort <T>::BubbleSort(T a[], int total)
 			return;
 		}
 	}
-	//T temp;
-	//int i{ 0 }, j{ 0 };
-	//for (i = 0; i < total - 1; ++i)
-	//{
-	//	for (j = 1; j < total; ++j)
-	//	{
-	//		if (a[j - 1] > a[j])
-	//		{
-	//			temp = a[j];
-	//			a[j] = a[j - 1];
-	//			a[j - 1] = temp;
-	//		}
-	//	}
-	//}
 }
 
 template<class T>

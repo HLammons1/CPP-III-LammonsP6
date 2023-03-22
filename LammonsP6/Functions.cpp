@@ -1,6 +1,10 @@
 #include "Functions.h"
 
-
+void writeToFile(string file, string input) {
+	ofstream outfile(file, ios::app);
+	outfile << input;
+	outfile.close();
+}
 
 void writeFirstTenPerson(Person* a)
 {

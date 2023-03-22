@@ -33,8 +33,8 @@ int main()
 
 	string fileName = getFileName();
 	writeToFile(fileName, headerString);
-	stringstream sortInfo;
 
+	stringstream sortInfo;
 	sortInfo << "\r\nNumber of integer values sorted by each routine : 200000" << endl;
 	sortInfo << "Number of string values sorted by each routine : 25000" << endl;
 	sortInfo << "Number of Persons sorted by each routine : 10000\r\n" << endl;

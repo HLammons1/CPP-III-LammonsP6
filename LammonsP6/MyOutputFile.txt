@@ -1,0 +1,33 @@
+Hayden Lammons
+HLammons1@cnm.edu
+CIS 2277 C++ III
+LammonsP6 Template Sorts
+
+Number of integer values sorted by each routine : 200000
+Number of string values sorted by each routine : 25000
+Number of Persons sorted by each routine : 10000
+
+
+Template Sort information for integers:
+|Name of sort function|    |Elapsed time in sec.millisec|
+BubbleSort                       101.085
+Comb11                             0.037
+InsertionSort                     26.852
+Selection                         45.163
+Shaker                            24.309
+
+Template Sort information for strings:
+|Name of sort function|    |Elapsed time in sec.millisec|
+BubbleSort                        194.61
+Comb11                             0.278
+InsertionSort                     22.848
+Selection                          19.02
+Shaker                            18.975
+
+Template Sort information for Persons:
+|Name of sort function|    |Elapsed time in sec.millisec|
+BubbleSort                       400.264
+Comb11                             2.161
+InsertionSort                    217.856
+Selection                        310.428
+Shaker                            309.56
